@@ -6,6 +6,7 @@ services:
       context: ./elasticsearch
       args:
         - ELK_VERSION=${ELK_VERSION}
+    restart: always
     environment:
       - "discovery.type=single-node"
       - "xpack.security.enabled=true"
@@ -28,6 +29,7 @@ services:
       context: ./kibana
       args:
         - ELK_VERSION=${ELK_VERSION}
+    restart: always
     depends_on:
       - elasticsearch
     volumes: 
